@@ -313,6 +313,7 @@ def get_scaled_dimensions(path, target_height_mm, dpi=96):
 
 
 def send_to_print_new():
+    create_label()
     pdf_to_print = 'labels.pdf'
 
     ##############################################################
@@ -415,23 +416,22 @@ lbltop = tk.Label(root_top,
     )
 lbltop.pack(pady = 20, padx =5, anchor = tk.CENTER)
 
-root = tk.Frame(window, width = wwidth, height = (0.5*wheight), bg = 'black')
+root = tk.Frame(window, width = wwidth, height = (0.4*wheight), bg = 'black')
 root.pack(fill = tk.BOTH, padx = 5, pady =5)
 
-label_instructions_2 = tk.Label(root, text="If generating a magazine labels ensure .csv is uploaded and all others are deleted", fg = 'white', bg = 'black', font=("Verdana", 14), width = 100)
-label_instructions_2.pack(padx=5, pady=5)
+#label_instructions_2 = tk.Label(root, text="If generating a magazine labels ensure .csv is uploaded and all others are deleted", fg = 'white', bg = 'black', font=("Verdana", 14), width = 100)
+#label_instructions_2.pack(padx=5, pady=5)
 
-
-root_2 = tk.Frame(root, width = wwidth, height = (0.2*wheight), bg = 'black')
+root_2 = tk.Frame(root, width = wwidth, height = (0.1*wheight), bg = 'black')
 root_2.pack(fill = tk.X, padx = 5, pady =5, side = tk.TOP)
 
-root_1 = tk.Frame(root, width = wwidth, height = (0.2*wheight), bg = 'black')
+root_1 = tk.Frame(root, width = wwidth, height = (0.1*wheight), bg = 'black')
 root_1.pack(fill = tk.X, padx = 5, pady =5)
 
-root_3 = tk.Frame(root, width = wwidth, height = (0.2*wheight), bg = 'black')
+root_3 = tk.Frame(root, width = wwidth, height = (0.1*wheight), bg = 'black')
 root_3.pack(fill = tk.X, padx = 5, pady =5)
 
-root_4 = tk.Frame(root, width = wwidth, height = (0.2*wheight), bg = 'black')
+root_4 = tk.Frame(root, width = wwidth, height = (0.1*wheight), bg = 'black')
 root_4.pack(fill = tk.X, padx = 5, pady =5, side = tk.BOTTOM)
 
 
@@ -484,7 +484,7 @@ entry_3 = tk.Entry(root_1,
                 )
 entry_3.pack(padx = 5, pady = 5, side = tk.LEFT)
 
-label_4 = tk.Label(root_2, text="No. of each label (default = 1): ", fg = 'white', bg = 'black', font=("Verdana", 14), width = 30)
+label_4 = tk.Label(root_2, text="How many repeats of each label? \n (default = 1): ", fg = 'white', bg = 'black', font=("Verdana", 14), width = 30)
 label_4.pack(padx=5, pady=5, side = tk.LEFT)
 multiple_var = tk.StringVar()
 entry_4 = tk.Entry(root_1,
@@ -497,19 +497,11 @@ entry_4.pack(padx = 5, pady = 5, side = tk.LEFT)
 root_bottom = tk.Frame(window, width = wwidth, height = (0.4*wheight), bg = 'black')
 root_bottom.pack(fill = tk.Y, padx = 5, pady =5)
 
-btn1 = tk.Button(root_bottom, 
-            text = "Generate Labels",
-            font=("Verdana", 14),
-            bg="#2E2E2E",        # dark grey background
-            fg="white",          # white text
-            activebackground="#444444",  # hover effect
-            activeforeground="white",
-            relief="flat",       # removes raised border
-            #padx=10,
-            #pady=6,
-            width=20,            # consistent button width
-            command=create_label)
-btn1.pack(padx = 5, pady = 5, side = tk.LEFT)
+label_file_gui = 'label_diagram.png'
+label_img = tk.PhotoImage(file=label_file_gui)
+label_img_= tk.Label(root_bottom,
+                image=label_img)
+label_img_.pack(padx = 5, pady = 5, side = tk.LEFT)
 
 
 print_btn = tk.Button(root_bottom, 
